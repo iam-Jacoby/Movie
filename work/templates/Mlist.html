@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1 class="title ms-5 mt-5 text-primary"><b>Movie Page</b></h1>
+    
+    <div class="container">
+        <table class="table table-striped table-dark table-hover mt-5 ">
+            <tr>
+                <th>Title</th>
+                <th>Release Date</th>
+                <th>Duration</th>
+                <th>Summary</th>
+                <th>Genre</th>
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
+            {% for i in qs %}
+                <tr>
+                    <td class="text-primary"><b>{{i.title}}</b></td>
+                    <td>{{i.release_date}}</td>
+                    <td>{{i.duration}}</td>
+                    <td>{{i.summary}}</td>
+                    <td>{{i.GenreName}}</td>
+                    <td><a class="btn btn-outline-danger" href="{% url 'delmovie' i.id %}">Delete</a></td>
+                    <td><a class="btn btn-outline-primary" href="{% url 'updtmovie' i.id %}">Edit</a></td>
+
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}

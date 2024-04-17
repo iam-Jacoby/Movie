@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1 class="text-primary mt-5"><b>ADD MOVIES</b></h1>
+<form class="form-control mt-2" action="" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    {{form.as_p}}
+    <button class="btn btn-outline-success" type="submit">Submit</button>
+</form>
+
+{% for i in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{i}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+
+{% endblock %}
